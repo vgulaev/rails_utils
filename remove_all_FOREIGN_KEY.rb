@@ -1,4 +1,7 @@
+require_relative 'rails_env'
 require 'mysql2'
+
+only_dev
 
 dbmane = 'mcommons_development'
 

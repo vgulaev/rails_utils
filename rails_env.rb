@@ -4,7 +4,7 @@ require_relative 'secrets'
 
 def init_rails(options = {})
   current_path = Dir.pwd
-  if UT::MY_HOST == Socket.gethostname
+  if UT::DEV_HOST == Socket.gethostname
     app_path = Pathname.new( UT::DEV_PATH )
   else
     app_path = Pathname.new( UT::SRV_PATH )
@@ -19,4 +19,15 @@ def init_rails(options = {})
   STDOUT.sync = true
 
   Dir.chdir current_path
+end
+
+def dev?
+  UT::DEV_HOST == Socket.gethostname
+end
+
+def only_dev
+  unless dev?
+    puts('Very dangerous script, can use only in dev env')
+    exit
+  end 
 end
