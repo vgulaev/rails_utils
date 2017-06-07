@@ -1,2 +1,5 @@
 secrets.rb
-my.json
+hw.rb
+*.json
+*.txt
+*.conf

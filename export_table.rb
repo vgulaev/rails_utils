@@ -1,5 +1,5 @@
 require_relative 'rails_env'
-require "zlib"
+require 'zlib'
 
 init_rails(:sql_logger_off => true)
 
